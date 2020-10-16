@@ -12,17 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# updated: 2020-10-15
+# updated: 2020-10-16
 
-FROM centos:8
-RUN dnf update -y && \
-    dnf install epel-release dnf-plugins-core -y && \
-    dnf config-manager --set-enabled PowerTools -y && \
-    dnf copr enable wilton/asio -y && \
-    dnf update -y && \
-    dnf install -y \
+FROM centos:7
+RUN yum update -y && \
+    yum install epel-release -y && \
+    yum update -y && \
+    yum install -y \
         git \
-        openssh-clients \
         valgrind \
         gcc-c++ \
         make \
@@ -34,7 +31,6 @@ RUN dnf update -y && \
         jansson-devel \
         log4cplus-devel \
         openssl-devel \
-        curl-devel \
         asio-devel \
         popt-devel \
         sqlite-devel \
@@ -43,13 +39,13 @@ RUN dnf update -y && \
         soci-sqlite3-devel \
         soci-postgresql-devel \
         libpng-devel \
-        libharu-devel \
         systemd-devel \
         webkitgtk4-jsc-devel \
         glib2-devel \
         gtk3-devel \
         webkitgtk4-devel \
+        libssh2-devel \
         libgit2-devel \
         systemd-devel \
         libjpeg-turbo-devel && \
-    dnf clean all
+    yum clean all
