@@ -12,11 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# updated: 2020-10-17
+# updated: 2021-02-16
 
 FROM ubuntu:focal
 ADD openssl.cnf /opt/openssl.cnf
-RUN apt update && \
+RUN export DEBIAN_FRONTEND="noninteractive" && \
+    export TZ="US/Pacific" && \
+    apt update && \
     apt upgrade -y && \
     apt install -y \
         git \

@@ -12,14 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# updated: 2020-10-15
+# updated: 2021-02-16
 
 FROM centos:8
-RUN dnf update -y && \
+RUN dnf update --exclude=filesystem -y  && \
     dnf install epel-release dnf-plugins-core -y && \
-    dnf config-manager --set-enabled PowerTools -y && \
+    dnf config-manager --set-enabled powertools -y && \
     dnf copr enable wilton/asio -y && \
-    dnf update -y && \
+    dnf update --exclude=filesystem -y  && \
     dnf install -y \
         git \
         openssh-clients \

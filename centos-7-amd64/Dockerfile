@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# updated: 2020-10-16
+# updated: 2021-02-16
 
 FROM centos:7
 RUN yum update -y && \
